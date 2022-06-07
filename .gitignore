@@ -1,0 +1,7 @@
+* test=auto
+.DS_Store
+*/.DS_Store
+mode_code_ignore
+__pycache__
+notebooks/.ipynb_checkpoints
+

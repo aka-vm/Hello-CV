@@ -1,0 +1,14 @@
+import sys
+import pathlib
+
+ROOT_PATH = pathlib.Path(__file__).parent
+DATA_PATH = ""
+
+def get_root_path():
+    return ROOT_PATH
+
+def get_models_path():
+    return ROOT_PATH / "models"
+
+def get_data_path():
+    return ROOT_PATH / "data"

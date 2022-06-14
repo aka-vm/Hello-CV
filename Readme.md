@@ -10,7 +10,7 @@ I have used **Keras** and **TensorFlow** as my backend framework.<br>
 ## Datasets
 All the used datasets well-known around the deeplearning community. They include -
 * [MNIST - Digit Recognizer](https://www.tensorflow.org/api_docs/python/tf/keras/datasets/mnist/load_data): A dataset of handwritten digits.
-<!-- * [CIFAR-10](https://www.kaggle.com/competitions/cifar-10/data): A dataset of 32x32 color images of 10 classes of objects. -->
+* [CIFAR-10](https://www.kaggle.com/competitions/cifar-10/data): A dataset of 32x32 color images of 10 classes of objects.
 
    For Larger I have used images and directories instead of single objects. This way I can use directory iterator to load images, which uses less memory.
 
@@ -18,6 +18,15 @@ All the used datasets well-known around the deeplearning community. They include
 I have used various models to classify the images, they vary from simple **Sequential Models** to complex **Functional Models**, **Transfer Learning Models** and more. All the models that are integrated on the pipeline include -
 
 * **Simple Sequential Model**: A simple model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class.
+
+* **Deep Sequential Model**: A model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class, better than **Simple Sequential Model**.
+
+## Results
+| S. No | Dataset | Best Accuracy | Best Model |
+|---|---|---|---|
+| 1 | MNIST(Digit Recognizer) | 99.3% | Simple Sequential |
+| 2 | CIFAR-10 | 76% | Deeper Sequential |
+
 
 
 <hr>

@@ -35,7 +35,7 @@ I have used various models to classify the images, they vary from simple **Seque
 | S. No | Dataset | Best Accuracy | Best Model |
 |---|---|---|---|
 | 1 | MNIST(Digit Recognizer) | 99.3% | Simple Sequential |
-| 2 | CIFAR-10 | 84.1% | VGG-Like Model |
+| 2 | CIFAR-10 | **89.94%** | VGG-Like Model |
 
 
 

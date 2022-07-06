@@ -16,9 +16,12 @@ I have used **Keras** and **TensorFlow** as my backend framework.<br>
 ## Datasets
 All the used datasets well-known around the deeplearning community. They include -
 * [MNIST - Digit Recognizer](https://www.tensorflow.org/api_docs/python/tf/keras/datasets/mnist/load_data): A dataset of handwritten digits.
-* [CIFAR-10](https://www.kaggle.com/competitions/cifar-10/data): A dataset of 32x32 color images of 10 classes of objects.
+* [CIFAR-10](https://www.kaggle.com/competitions/cifar-10/data): This dataset contains 32x32 color images of 10 classes of objects.
+* [Stanford Dogs Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset): Contains images of 120 breeds of dogs. Each image has different pixel values and ratio.
 
-   For Larger I have used images and directories instead of single objects. This way I can use directory iterator to load images, which uses less memory.
+   For large datasets I have used images and directories instead of single objects. This way I can use directory iterator to load images, which uses less memory.
+
+   Image augmentation is also used to augment the images. This is done by using the `ImageDataGenerator` class.
 
 ## Models
 I have used various models to classify the images, they vary from simple **Sequential Models** to complex **Functional Models**, **Transfer Learning Models** and more. All the models that are integrated on the pipeline include -
@@ -34,8 +37,9 @@ I have used various models to classify the images, they vary from simple **Seque
 ## Results
 | S. No | Dataset | Best Accuracy | Best Model |
 |---|---|---|---|
-| 1 | MNIST(Digit Recognizer) | 99.3% | Simple Sequential |
-| 2 | CIFAR-10 | **89.94%** | VGG-Like Model |
+| 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
+| 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |
+| 3 | [Stanford Dogs](/Stanford%20Dogs%20Dataset/) | **0%** | None |
 
 
 

@@ -12,12 +12,12 @@ The [Stanford Dogs dataset](https://www.kaggle.com/datasets/jessicali9530/stanfo
 | Pixel Size | Different |
 | Pixel Ratio | Different |
 
-#### Data Distribution
+<!-- #### Data Distribution
 | Set | Ratio | Number |
 |---|---|---|
 | Train | 0.6 | 12,347 |
 | Validation | 0.15 | 3,029 |
-| Test | 0.25 | 5,244 |
+| Test | 0.25 | 5,244 | -->
 
 
 ## Image Preprocessing and Augmentation

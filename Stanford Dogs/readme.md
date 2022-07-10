@@ -29,5 +29,5 @@ Since The dataset is large and different classes are quite similar. I have used 
 ## Results
 | S. No | Model | Accuracy | Top-5 Accuracy | Time |
 |---|---|---|---|---|
-| 1 | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | **88.03%** | **98.63%** | 0 secs |
+| 1 | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | **80.81%** | **96.91%** | 0 secs |
 <!-- | 2 | [Name](#) | **0.0%** | **0.0%** | 0 secs | -->

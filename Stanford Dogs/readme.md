@@ -12,12 +12,11 @@ The [Stanford Dogs dataset](https://www.kaggle.com/datasets/jessicali9530/stanfo
 | Pixel Size | Different |
 | Pixel Ratio | Different |
 
-<!-- #### Data Distribution
+#### Data Distribution
 | Set | Ratio | Number |
 |---|---|---|
-| Train | 0.6 | 12,347 |
-| Validation | 0.15 | 3,029 |
-| Test | 0.25 | 5,244 | -->
+| Train | 0.75 | 15394 |
+| Test | 0.25 | 5,186 |
 
 
 ## Image Preprocessing and Augmentation
@@ -30,5 +29,5 @@ Since The dataset is large and different classes are quite similar. I have used 
 ## Results
 | S. No | Model | Accuracy | Top-5 Accuracy | Time |
 |---|---|---|---|---|
-<!-- | 1 | [Name](#) | **0.0%** | **0.0%** | 0 secs |
-| 2 | [Name](#) | **0.0%** | **0.0%** | 0 secs | -->
+| 1 | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | **88.03%** | **98.63%** | 0 secs |
+<!-- | 2 | [Name](#) | **0.0%** | **0.0%** | 0 secs | -->

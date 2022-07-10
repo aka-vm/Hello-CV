@@ -6,6 +6,7 @@ I have used **Keras** and **TensorFlow** as my backend framework.<br>
 - [Hello CNN](#hello-cnn)
   - [TODOs for running the code](#todos-for-running-the-code)
   - [Datasets](#datasets)
+    - [Data Preprocessing](#data-preprocessing)
   - [Models](#models)
   - [Results](#results)
 
@@ -19,9 +20,11 @@ All the used datasets well-known around the deeplearning community. They include
 * [CIFAR-10](https://www.kaggle.com/competitions/cifar-10/data): This dataset contains 32x32 color images of 10 classes of objects.
 * [Stanford Dogs Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset): Contains images of 120 breeds of dogs. Each image has different pixel values and ratio.
 
-   For large datasets I have used images and directories instead of single objects. This way I can use directory iterator to load images, which uses less memory.
+### Data Preprocessing
 
-   Image augmentation is also used to augment the images. This is done by using the `ImageDataGenerator` class.
+* For large datasets I have used `Image Iterator`, This uses less memory.
+
+* Image augmentation is also used to augment the images. This is done by using the `ImageDataGenerator` class.
 
 ## Models
 I have used various models to classify the images, they vary from simple **Sequential Models** to complex **Functional Models**, **Transfer Learning Models** and more. All the models that are integrated on the pipeline include -
@@ -39,13 +42,11 @@ I have used various models to classify the images, they vary from simple **Seque
 |---|---|---|---|
 | 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
 | 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |
-| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **80.81%%** | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) |
+| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **80.81%** | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) |
 
 
 
-<hr>
+<hr><br>
 
-
-
-Check the branches. I have created a new branch everytime I added a new type of model.<br>
-NOTE: For Some reason different hardware give different results, I used two Machines, **Macbook Air M1(8gb)** and **Intel i7 11700k | RTX3070**. **RTX3070** machine gave better results with a good margin.
+`Check the branches`. I have created a new branch everytime I added a new type of model.<br><br>
+NOTE: For Some reason different hardware give different results, I used two Machines, **Macbook Air `M1(8gb)`** and **Intel i7 11700k | `RTX3070`**. **`RTX3070`** machine gave better results with a good margin.

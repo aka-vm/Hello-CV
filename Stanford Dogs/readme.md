@@ -43,4 +43,3 @@ A new type of learning process is also used, I've named it `Partial Transfer Lea
 | 4 | [ResNet152-V2(TL)](/Stanford%20Dogs/TL-ResNet.ipynb) | **78.71%** | **95.99%** | 0 secs |
 | 5 | [VGG-19(TL)](/Stanford%20Dogs/TL-VGG.ipynb) | **25.99%** | **55.36%** | 0 secs |
 <!-- | n | [Model](/Stanford%20Dogs/#) | **00%** | **00%** | 0 secs | -->
-̀

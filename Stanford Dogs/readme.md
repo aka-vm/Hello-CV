@@ -37,8 +37,10 @@ A new type of learning process is also used, I've named it `Partial Transfer Lea
 ## Results
 | S. No | Model | Accuracy | Top-5 Accuracy |
 |---|---|---|---|
-| 1 | [InceptionNet-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | **80.81%** | **96.91%** | 0 secs |
-| 2 | [ResNet152-V2(TL)](/Stanford%20Dogs/TL-ResNet.ipynb) | **78.71%** | **95.99%** | 0 secs |
-| 3 | [VGG-19(TL)](/Stanford%20Dogs/TL-VGG.ipynb) | **25.99%** | **55.36%** | 0 secs |
-<!-- | 4 | [Xception](/Stanford%20Dogs/#) | **00%** | **00%** | 0 secs | -->
+| 1 | [InceptionNet-V3(PTL)](/Stanford%20Dogs/PTL-Inception-net-V3.ipynb) | **81.51%** | **96.93%** | 0 secs |
+| 2 | [InceptionNet-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | **80.81%** | **96.91%** | 0 secs |
+| 3 | [Xception(TL)](/Stanford%20Dogs/TL-Xception.ipynb) | **80.81%** | **96.51%** | 0 secs |
+| 4 | [ResNet152-V2(TL)](/Stanford%20Dogs/TL-ResNet.ipynb) | **78.71%** | **95.99%** | 0 secs |
+| 5 | [VGG-19(TL)](/Stanford%20Dogs/TL-VGG.ipynb) | **25.99%** | **55.36%** | 0 secs |
 <!-- | n | [Model](/Stanford%20Dogs/#) | **00%** | **00%** | 0 secs | -->
+̀

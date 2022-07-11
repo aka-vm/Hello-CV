@@ -29,20 +29,17 @@ All the used datasets well-known around the deeplearning community. They include
 ## Models
 I have used various models to classify the images, they vary from simple **Sequential Models** to complex **Functional Models**, **Transfer Learning Models** and more. All the models that are integrated on the pipeline include -
 
-* **Simple Sequential Model**: A simple model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class.
+* **Simple Model**: A simple model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class and contains very low-level computional blocks as compared to later models.
+* **Transfer Learning Model**: Models developed using `Transfer Learning` Process. Some of these models include VGG, ResNet and InceptionNet.
+* **TL-Like Model**: These models are inspired from the layers of well known `Transfer Learning Models` like VGG, ResNet and InceptionNet.
 
-* **Deep Sequential Model**: A model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class, better than **Simple Sequential Model**.
-
-* **VGG-Like Model**: This model contains blocks similar to **VGG-16**.
-
-* **Resnet-Like Model**: This model contains **Redidual Blocks**, similar to **Resnet Models**.
 
 ## Results
 | S. No | Dataset | Best Accuracy | Best Model |
 |---|---|---|---|
 | 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
 | 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |
-| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **80.81%** | [Inception-Net-V3(TL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) |
+| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) |
 
 
 

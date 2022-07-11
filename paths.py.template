@@ -1,8 +1,9 @@
 import sys
 import pathlib
 
-ROOT_PATH = pathlib.Path(__file__).parent
-DATA_PATH = ""
+ROOT_PATH = "Path/to/the/cloned/repo"
+DATA_PATH = "Path/to/dir/which/containg/data/folder"
+
 
 def get_repo_path():
     return pathlib.Path(REPO_PATH)

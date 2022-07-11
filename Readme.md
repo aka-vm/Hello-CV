@@ -1,14 +1,14 @@
-# Hello CNN
+# Hello CV
 Not just a **hello-world Repository** with entery-level code!<br>
 In this repo I have worked to develop various models for the purpose of Image Classification and used them on various datasets.<br>
 I have used **Keras** and **TensorFlow** as my backend framework.<br>
 
-- [Hello CNN](#hello-cnn)
+- [Hello CV](#hello-cv)
   - [TODOs for running the code](#todos-for-running-the-code)
   - [Datasets](#datasets)
     - [Data Preprocessing](#data-preprocessing)
   - [Models](#models)
-  - [Results](#results)
+  - [Image Classification Results](#image-classification-results)
 
 ## TODOs for running the code
 1. Create `paths.py` file (use `paths.py.template` as a template)
@@ -34,12 +34,12 @@ I have used various models to classify the images, they vary from simple **Seque
 * **TL-Like Model**: These models are inspired from the layers of well known `Transfer Learning Models` like VGG, ResNet and InceptionNet.
 
 
-## Results
-| S. No | Dataset | Best Accuracy | Best Model |
-|---|---|---|---|
+## Image Classification Results
+| S. No | Dataset | Best Accuracy | Best Model | Real-Life Test |
+|---|---|---|---|---|
 | 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
 | 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |
-| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) |
+| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
 
 
 

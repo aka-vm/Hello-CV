@@ -39,7 +39,7 @@ I have used various models to classify the images, they vary from simple **Seque
 |---|---|---|---|---|
 | 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
 | 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |
-| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/TL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
+| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/PTL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
 
 
 

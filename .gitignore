@@ -4,6 +4,7 @@
 mode_code_ignore
 __pycache__
 */.ipynb_checkpoints
+*/*.ipynb_checkpoints
 
 models/
 paths.py

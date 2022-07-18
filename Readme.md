@@ -7,7 +7,7 @@ I have used **Keras** and **TensorFlow** as my backend framework.<br>
   - [TODOs for running the code](#todos-for-running-the-code)
   - [Datasets](#datasets)
     - [Data Preprocessing](#data-preprocessing)
-  - [Models](#models)
+  - [Image Classification Models](#image-classification-models)
   - [Image Classification Results](#image-classification-results)
 
 ## TODOs for running the code
@@ -26,7 +26,7 @@ All the used datasets well-known around the deeplearning community. They include
 
 * Image augmentation is also used to augment the images. This is done by using the `ImageDataGenerator` class.
 
-## Models
+## Image Classification Models
 I have used various models to classify the images, they vary from simple **Sequential Models** to complex **Functional Models**, **Transfer Learning Models** and more. All the models that are integrated on the pipeline include -
 
 * **Simple Model**: A simple model that is based on [keras.models.Sequential](https://keras.io/models/sequential/) class and contains very low-level computional blocks as compared to later models.
@@ -38,8 +38,8 @@ I have used various models to classify the images, they vary from simple **Seque
 | S. No | Dataset | Best Accuracy | Best Model | Real-Life Test |
 |---|---|---|---|---|
 | 1 | [MNIST(Digit Recognizer)](/MNIST-Digit_Recogonizer/) | 99.3% | Simple Sequential |
-| 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | VGG-Like Model |  [5 images](/CIFAR-10/real-image-test.ipynb) |
-| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/PTL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
+| 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | [VGG-Like Model](/CIFAR-10/final-notebook.ipynb) |  [5 images](/CIFAR-10/real-image-test.ipynb) |
+| 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/classification/PTL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
 
 
 

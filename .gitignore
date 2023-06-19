@@ -8,3 +8,10 @@ __pycache__
 
 models/
 paths.py
+MNIST-Digit_Recogonizer/main-notebook copy.ipynb
+
+*.test.*
+.python-version
+Neural Style Transfer/generated images/
+Neural Style Transfer/content images
+Neural Style Transfer/style images

@@ -9,6 +9,7 @@ I have used **Keras** and **TensorFlow** as my backend framework.<br>
     - [Data Preprocessing](#data-preprocessing)
   - [Image Classification Models](#image-classification-models)
   - [Image Classification Results](#image-classification-results)
+  - [Other Computer Vision Tasks](#other-computer-vision-tasks)
 
 ## TODOs for running the code
 1. Create `paths.py` file (use `paths.py.template` as a template)
@@ -41,6 +42,11 @@ I have used various models to classify the images, they vary from simple **Seque
 | 2 | [CIFAR-10](/CIFAR-10/) | **89.94%** | [VGG-Like Model](/CIFAR-10/final-notebook.ipynb) |  [5 images](/CIFAR-10/real-image-test.ipynb) |
 | 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/classification/PTL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
 
+## Other Computer Vision Tasks
+| S. No | Application Name | Refered Literature | Implimented Using |
+|---|---|---|---|
+| 1 | [Neural Style Transfer](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch |
+<!-- | 2 | [Face ](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch | -->
 
 
 <hr><br>

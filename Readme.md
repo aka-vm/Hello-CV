@@ -1,3 +1,9 @@
+<style>
+small{
+    size: 5px;
+    /* color: gray; */
+}
+</style>
 # Hello CV
 Not just a **hello-world Repository** with entery-level code!<br>
 In this repo I have worked to develop various models for the purpose of Image Classification and used them on various datasets.<br>
@@ -43,9 +49,9 @@ I have used various models to classify the images, they vary from simple **Seque
 | 3 | [Stanford Dogs](/Stanford%20Dogs/) | **81.51%** | [Inception-Net-V3(PTL)](/Stanford%20Dogs/classification/PTL-Inception-net-V3.ipynb) | [4 images](/Stanford%20Dogs/real-image-test.ipynb) |
 
 ## Other Computer Vision Tasks
-| S. No | Application Name | Refered Literature | Implimented Using |
+| S. No | Application Name  |Refered Literature | Implimented Using |
 |---|---|---|---|
-| 1 | [Neural Style Transfer](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch |
+| 1 | [Neural Style Transfer](/Neural%20Style%20Transfer/)|[A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576),<br>[NST With Two Style](https://towardsdatascience.com/mixed-neural-style-transfer-with-two-style-images-9469b2681b54) | Pytorch |
 <!-- | 2 | [Face ](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch | -->
 
 

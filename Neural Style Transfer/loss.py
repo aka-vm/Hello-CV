@@ -19,8 +19,8 @@ class NST_Loss(nn.Module):
         self.content_loss_fxn = ContentLoss(content_features)
         self.style_loss_fxn = StyleLoss(styles_features)
 
-        self.alpha = 0.02
-        self.beta = 0.5
+        self.alpha = 0.01
+        self.beta = 0.2
 
     def forward(
         self,

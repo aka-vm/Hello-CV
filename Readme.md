@@ -53,7 +53,7 @@ I have used various models to classify the images, they vary from simple **Seque
 |---|---|---|---|
 | 1 | [Neural Style Transfer](/Neural%20Style%20Transfer/)|[A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576),<br>[NST With Two Style](https://towardsdatascience.com/mixed-neural-style-transfer-with-two-style-images-9469b2681b54) | Pytorch |
 <!-- | 2 | [Face ](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch | -->
-
+![gif](<Neural Style Transfer/car-van-g.gif>)
 
 <hr><br>
 

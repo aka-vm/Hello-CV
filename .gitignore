@@ -15,3 +15,8 @@ MNIST-Digit_Recogonizer/main-notebook copy.ipynb
 Neural Style Transfer/generated images/
 Neural Style Transfer/content images
 Neural Style Transfer/style images
+
+*.pt
+runs
+dataset.yaml
+

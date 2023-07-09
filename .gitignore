@@ -21,4 +21,5 @@ runs
 dataset.yaml
 
 .kaggle
+root_dir
 slides

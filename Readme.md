@@ -52,7 +52,7 @@ I have used various models to classify the images, they vary from simple **Seque
 | S. No | Application Name  |Refered Literature/Implimentation| Implimented Using | Metric | Score | Visuals |
 | ---| ---| ---| ---| ---| ---| ---|
 | 1 | [Neural Style Transfer](/Neural%20Style%20Transfer/)|[A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576),<br>[NST With Two Style](https://towardsdatascience.com/mixed-neural-style-transfer-with-two-style-images-9469b2681b54) | Pytorch |  |  | ![gif](<Neural Style Transfer/car-van-g.gif>) |
-| 2 | [Dog Breed Detection (YOLOv8)](/Stanford%20Dogs/detection/yolo-v8.ipynb)|[Joseph Chet's Publications](https://pjreddie.com/publications/), [YOLOv8 Implimentation](https://github.com/ultralytics/ultralytics)| Pytorch, Ultralytics | mAP50-95 | 0.789 | ![Mommy Dog ❤️](<Stanford Dogs/detection/dog mother.gif>) |
+| 2 | [Dog Breed Detection (YOLOv8)](/Stanford%20Dogs/detection/yolo-v8.ipynb)|[Joseph Chet's Publications](https://pjreddie.com/publications/), [YOLOv8 Implimentation](https://github.com/ultralytics/ultralytics)| Pytorch, Ultralytics | mAP50-95 | 0.789 | ![Alt text](<Stanford Dogs/detection/images/dog mother.gif>) |
 <!-- | 2 | [Face ](/Neural%20Style%20Transfer/) | [A Neural Algorithm  of<br> Artistic Style](https://arxiv.org/abs/1508.06576) | Pytorch | -->
 
 <hr><br>

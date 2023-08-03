@@ -23,3 +23,5 @@ dataset.yaml
 .kaggle
 root_dir
 slides
+MNIST-Digit 8k params/MNIST
+weights

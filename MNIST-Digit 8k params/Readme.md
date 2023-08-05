@@ -47,7 +47,6 @@ I'm also going to be improving the overall pipeline and add new features for bet
 So Far, I've achived a validation accuracy of `99.3`% with the previous model.
 Now, I'm going to try and understand why the model is making mistakes by observing the confusion matrix & missclassified images from [Version 2](<Version 2.ipynb>).
 
-<!-- ![Alt text](images/v2-cm.png)![Alt text](images/v2-mis-clf.png) -->
 <!-- putting these images side to side using html -->
 <div>
     <a href="./images/v2-cm.png"><img src="images/v2-cm.png" width="400"/></a>

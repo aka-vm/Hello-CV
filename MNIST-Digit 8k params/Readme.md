@@ -7,9 +7,9 @@ In this project, I'm going to document my journey of creating a model that can c
 
 
 ## Why the Hell?
-First of all, While doing this challenge I'm Jobless, It was suggested by a senior he emphasized on the fact that It'll be a good learning experience.
+First of all, While doing this challenge I'm looking for a job, It was suggested by a senior he emphasized on the fact that It'll be a good learning experience.
 
-One Good Application of this is that we can use this model in a microcontroller for inference. 8k parameters means  memory of 16kB(Float16), For an ESP-MCU this amount of memory is available. So, we can use this model in a microcontroller.
+One Good Application of this is that we can use this model in a `16-bit` microcontroller for inference. 8k parameters means memory of 16kB(Float16). So, we can use this model in a microcontroller.
 
 This Problem emelutes the condition perfectely where we have to use a small model with limited resources. Further down the road I may also try reducing the data, as having a good data is not always possible.
 

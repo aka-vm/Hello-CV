@@ -16,7 +16,11 @@ import pathlib
 PROJECT_PATH =  pathlib.Path(".") / "MNIST-Digit 8k params"
 BATCH_SIZE = 64
 NUM_WORKERS = 2     # should not be more than os.cpu_count() // 2
-TOTAL_EPOCHS = 25
+TOTAL_EPOCHS = 15
+LEARNING_RATE = 0.0005
+DEVICE = torch.device("cuda:0") if torch.cuda.is_available() \
+    else torch.device("mps") if torch.backends.mps.is_available() \
+    else torch.device("cpu")
 
 # %% Utils
 def get_train_val_test_dataloaders() -> list[DataLoader]:
@@ -45,7 +49,9 @@ def evaluate(
     network: nn.Module,
     loss_fn: nn.Module,
     data_loader: DataLoader,
+    device="cpu"
 ) -> dict[str, float]:
+
     all_pred = np.empty(0)
     all_target = np.empty(0)
 
@@ -53,14 +59,17 @@ def evaluate(
     total_loss = 0.0
     with torch.no_grad():
         for i, (images, target) in enumerate(data_loader):
+            images = images.to(device)
+            target = target.to(device)
+
             output = network(images)
 
             loss = loss_fn(output, target)
             total_loss += loss.item()
 
-            pred = torch.argmax(output, 1)
+            pred = torch.argmax(output, 1).to("cpu")
             all_pred = np.concatenate((all_pred, pred))
-            all_target = np.concatenate((all_target, target))
+            all_target = np.concatenate((all_target, target.to("cpu")))
 
     total_loss /= len(data_loader)
     accuracy = accuracy_score(all_target, all_pred)
@@ -122,18 +131,23 @@ def train(
     loss_fn: nn.Module,
     train_dataloader: DataLoader,
     val_dataloader: DataLoader=None,
+    device="cpu"
 ) -> dict[int, dict]:
 
-    print("Training The Network...")
+    print(f"Training The Network on {device}")
     training_logs = {}
+    network = network.to(device)
+
     for epoch in range(num_epochs):
         print(f"Epoch {epoch+1}/{num_epochs}: ")
         loop = tqdm(train_dataloader)
-        network.train()
+
         # Train Loop
-        total_loss = 0.0
+        network.train()
         for i, (images, target) in enumerate(loop):
             optimizer.zero_grad()
+            images = images.to(device)
+            target = target.to(device)
 
             pred = network(images)
             loss = loss_fn(pred, target)
@@ -142,12 +156,11 @@ def train(
             optimizer.step()
 
             loop_loss = loss.item()
-            total_loss += loop_loss
             loop.set_postfix(loss=loop_loss)
 
         # Evaluate -
-        train_metrices = evaluate(network, loss_fn, train_dataloader)
-        val_metrices = evaluate(network, loss_fn, val_dataloader)
+        train_metrices = evaluate(network, loss_fn, train_dataloader, device=device)
+        val_metrices = evaluate(network, loss_fn, val_dataloader, device=device)
 
         print(f"    Train Loss - {train_metrices['loss']:.4f}; Validation Loss - {val_metrices['loss']:.4f}")
         print(f"    Train Accuracy - {train_metrices['accuracy']*100:.2f}%; Validation Accuracy - {val_metrices['accuracy']*100:.2f}%")
@@ -167,7 +180,7 @@ def main() -> None:
     cnn_network = CNN()
     print(cnn_network.summary())
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(cnn_network.parameters(), lr=0.0005)
+    optimizer = optim.Adam(cnn_network.parameters(), lr=LEARNING_RATE)
 
     logs = train(
         num_epochs=TOTAL_EPOCHS,
@@ -176,13 +189,14 @@ def main() -> None:
         loss_fn=loss_fn,
         train_dataloader=train_dataloader,
         val_dataloader=val_dataloader,
+        device=DEVICE,
     )
     best_loss_epoch = min(logs, key=lambda x: logs[x]["val_loss"])
     best_loss = logs[best_loss_epoch]["val_loss"]
     best_acc_epoch = max(logs, key=lambda x: logs[x]["val_accuracy"])
     best_acc = logs[best_acc_epoch]["val_accuracy"]
 
-    testing_logs = evaluate(cnn_network, loss_fn, test_dataloader)
+    testing_logs = evaluate(cnn_network, loss_fn, test_dataloader, device=DEVICE)
 
     print("="*50)
     print("Training Highlights")

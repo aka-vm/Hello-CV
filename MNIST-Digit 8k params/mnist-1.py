@@ -1,4 +1,5 @@
-# %% Imports
+# MNIST
+# !%% Imports
 import torch
 import torch.nn as nn
 from torch import optim
@@ -12,30 +13,35 @@ from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 import pathlib
 
-# %% Constants
+# !%% Constants
 PROJECT_PATH =  pathlib.Path(".") / "MNIST-Digit 8k params"
 BATCH_SIZE = 64
 NUM_WORKERS = 2     # should not be more than os.cpu_count() // 2
 TOTAL_EPOCHS = 15
-LEARNING_RATE = 0.0005
+LEARNING_RATE = 0.005
 DEVICE = torch.device("cuda:0") if torch.cuda.is_available() \
     else torch.device("mps") if torch.backends.mps.is_available() \
     else torch.device("cpu")
 
-# %% Utils
+# !%% Utils
 def get_train_val_test_dataloaders() -> list[DataLoader]:
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.1307), (0.3081))          # train_data.mean() / 255 ,train_data.std() / 255
+    ])
+
     train_data = datasets.MNIST(
         root=PROJECT_PATH,
         train=True,
         download=True,
-        transform=transforms.ToTensor()
+        transform=transform
     )
     train_data, val_data = random_split(train_data, (52000, 8000))
     test_data = datasets.MNIST(
         root=PROJECT_PATH,
         train=False,
         download=True,
-        transform=transforms.ToTensor()
+        transform=transform
     )
 
     train_dataloader    = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS)
@@ -59,6 +65,8 @@ def evaluate(
     total_loss = 0.0
     with torch.no_grad():
         for i, (images, target) in enumerate(data_loader):
+            all_target = np.concatenate((all_target, target))
+
             images = images.to(device)
             target = target.to(device)
 
@@ -69,7 +77,6 @@ def evaluate(
 
             pred = torch.argmax(output, 1).to("cpu")
             all_pred = np.concatenate((all_pred, pred))
-            all_target = np.concatenate((all_target, target.to("cpu")))
 
     total_loss /= len(data_loader)
     accuracy = accuracy_score(all_target, all_pred)
@@ -79,7 +86,7 @@ def evaluate(
         "accuracy": accuracy,
     }
 
-# %% Network
+# !%% Network
 class CNN(nn.Module):
     def __init__(self):
         super().__init__()
@@ -87,17 +94,21 @@ class CNN(nn.Module):
         # Block 1
         self.block1 = nn.Sequential(
             nn.Conv2d(1, 8, 3, 1),      # 1x28x28 -> 8x26x26
-            nn.ReLU(),
+            nn.BatchNorm2d(8),
+            nn.LeakyReLU(0.1),
             nn.Conv2d(8, 8, 3, 1),      # 8x26x26 -> 8x24x24
-            nn.ReLU(),
+            nn.BatchNorm2d(8),
+            nn.LeakyReLU(0.1),
             nn.MaxPool2d(2, 2),         # 8x24x24 -> 8x12x12
         )
         # Block 2
         self.block2 = nn.Sequential(
             nn.Conv2d(8, 16, 3, 1),     #  8x12x12 -> 16x10x10
-            nn.ReLU(),
+            nn.BatchNorm2d(16),
+            nn.LeakyReLU(0.1),
             nn.Conv2d(16, 32, 3, 1),    # 16x10x10 -> 32x8x8
-            nn.ReLU(),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(0.1),
             nn.MaxPool2d(4, 4),         # 32x8x8 -> 32x2x2
         )
         self.out = nn.Linear(4*32, 10)  # 128->10
@@ -123,7 +134,7 @@ class CNN(nn.Module):
             **kwargs
             )
 
-# %% training loop
+# !%% training loop
 def train(
     num_epochs: int,
     network: nn.Module,
@@ -139,12 +150,19 @@ def train(
     network = network.to(device)
 
     for epoch in range(num_epochs):
+        lr = optimizer.param_groups[0]["lr"]
+
         print(f"Epoch {epoch+1}/{num_epochs}: ")
         loop = tqdm(train_dataloader)
-
+        total_steps = len(train_dataloader)
         # Train Loop
+        total_loss = 0.0
         network.train()
+        all_pred = np.empty(0)
+        all_target = np.empty(0)
         for i, (images, target) in enumerate(loop):
+            all_target = np.concatenate((all_target, target))
+            # Forward & Back Pass
             optimizer.zero_grad()
             images = images.to(device)
             target = target.to(device)
@@ -155,11 +173,22 @@ def train(
             loss.backward()
             optimizer.step()
 
-            loop_loss = loss.item()
-            loop.set_postfix(loss=loop_loss)
+            # Loop Callbacks
+            all_pred = np.concatenate((all_pred, torch.argmax(pred, 1).to("cpu")))
+            total_loss += loss.item()
+
+            if i%(total_steps//50)==0:
+                avg_accuracy = accuracy_score(all_target, all_pred)
+                avg_loss = total_loss/(i+1)
+                loop.set_postfix(
+                    lr=lr,
+                    avg_loss = avg_loss,
+                    accuracy = avg_accuracy,
+                )
 
         # Evaluate -
-        train_metrices = evaluate(network, loss_fn, train_dataloader, device=device)
+        # train_metrices = evaluate(network, loss_fn, train_dataloader, device=device)
+        train_metrices = {"loss": avg_loss, "accuracy": avg_accuracy}
         val_metrices = evaluate(network, loss_fn, val_dataloader, device=device)
 
         print(f"    Train Loss - {train_metrices['loss']:.4f}; Validation Loss - {val_metrices['loss']:.4f}")
@@ -173,7 +202,7 @@ def train(
     print("Training Completed")
     return training_logs
 
-# %% Main Function
+# !%% Main Function
 def main() -> None:
     train_dataloader, val_dataloader, test_dataloader = get_train_val_test_dataloaders()
 
@@ -209,9 +238,9 @@ def main() -> None:
     print("="*50)
 
 
-#%% Run Main
+# !%% Run Main
 if __name__ == "__main__":
     main()
 
 
-# %%
+# !%%
